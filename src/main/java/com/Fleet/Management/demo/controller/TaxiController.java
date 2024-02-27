@@ -23,6 +23,7 @@ public class TaxiController {
         this.taxiService = taxiServices;
     }
 
+    //agregar documentación
     @Operation(summary = "Get all taxis")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the taxi",
