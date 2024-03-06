@@ -26,7 +26,4 @@ public class TaxiServices {
     }
 }
 
-/*Page<Product> allProducts = productRepository.findAll(firstPageWithTwoElements);
 
-List<Product> allTenDollarProducts =
-        productRepository.findAllByPrice(10, secondPageWithFiveElements);*/

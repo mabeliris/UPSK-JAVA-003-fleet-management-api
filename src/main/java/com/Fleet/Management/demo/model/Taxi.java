@@ -12,6 +12,8 @@ public class Taxi {
     @Column(name= "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name= "plate")
     private String plate;
    
   // Constructor vacío requerido por JPA
