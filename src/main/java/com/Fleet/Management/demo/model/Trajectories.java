@@ -17,8 +17,9 @@ public class Trajectories {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name= "taxi_id")
-    private int taxi_id;
+    @ManyToOne()
+    @JoinColumn(name= "taxi_id")
+    private Taxi taxi; //tipo taxi join colum manyToOne ManyToOne - OneToMany - JoinColumn
 
     @Column (name= "date")
     private OffsetDateTime date;
@@ -34,12 +35,12 @@ public class Trajectories {
      public Trajectories() {}
 
     //constructor con parámetros
-    public Trajectories(long id, int taxi_id, OffsetDateTime date, double latitude, double longitude) {
+    public Trajectories(long id, Taxi taxi, OffsetDateTime date, double latitude, double longitude) {
          this.id = id;
          this.date=date;
          this.latitude= latitude;
          this.longitude=longitude;
-         this.taxi_id= taxi_id;
+         this.taxi= taxi;
     }
 
     //Getters y setters
@@ -50,10 +51,8 @@ public class Trajectories {
         this.id = id;
     }
 
-    public int getTaxi_id() { return taxi_id;}
-    public void setTaxi_id(int taxi_id) {
-        this.taxi_id = taxi_id;
-    }
+    public Taxi getTaxi() { return taxi;}
+    public void setTaxi(Taxi taxi) {this.taxi = taxi;}
 
     public OffsetDateTime getDate() { return date;}
 

@@ -2,26 +2,23 @@ package com.Fleet.Management.demo.service;
 
 
 import com.Fleet.Management.demo.model.Trajectories;
-
 import com.Fleet.Management.demo.repository.TrajectoriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Optional;
 
 @Service
 public class TrajectoriesServices {
 
     private final TrajectoriesRepository trajectoriesRepository;
 
+
     @Autowired
-    public TrajectoriesServices(TrajectoriesRepository trajectoriesRepository) {
+    public TrajectoriesServices(TrajectoriesRepository trajectoriesRepository ) {
         this.trajectoriesRepository = trajectoriesRepository;
+
     }
 
     public Page<Trajectories> getAllTrajectories (Pageable pageable){
@@ -34,4 +31,8 @@ public class TrajectoriesServices {
     }
 
 
+    //listar trayectorias por taxi
+    public Page<Trajectories> getLastLocation(Pageable pageable) {
+        return trajectoriesRepository.findLastLocation(pageable); //cambiar en el repositorio
+    }
 }
