@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import java.util.List;
 
 
 @RestController
@@ -86,7 +86,7 @@ public class TrajectoriesController {
 
 
     @GetMapping ("last-Location")
-    public Page<Trajectories> getLastLocation (
+    public List<Trajectories> getLastLocation (
 
 
         @Parameter(description = "Page number, default is 0") @RequestParam(defaultValue = "0") int page,

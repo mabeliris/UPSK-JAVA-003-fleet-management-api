@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class TrajectoriesServices {
@@ -32,7 +34,7 @@ public class TrajectoriesServices {
 
 
     //listar trayectorias por taxi
-    public Page<Trajectories> getLastLocation(Pageable pageable) {
+    public List<Trajectories> getLastLocation(Pageable pageable) {
         return trajectoriesRepository.findLastLocation(pageable); //cambiar en el repositorio
     }
 }
