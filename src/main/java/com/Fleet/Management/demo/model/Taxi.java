@@ -2,6 +2,8 @@ package com.Fleet.Management.demo.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 
 @Entity
 @Table(name = "taxis")
@@ -10,11 +12,14 @@ public class Taxi {
 
     @Id
     @Column(name= "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+  // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name= "plate")
     private String plate;
+
+    //@OneToMany(mappedBy="taxi")
+    //private Set<Trajectories> trajectories;
    
   // Constructor vacío requerido por JPA
     public Taxi() {}
