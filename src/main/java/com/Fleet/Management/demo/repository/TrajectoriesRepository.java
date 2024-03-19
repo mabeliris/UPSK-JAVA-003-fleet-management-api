@@ -17,7 +17,7 @@ public interface TrajectoriesRepository extends PagingAndSortingRepository<Traje
     Page<Trajectories> findByTaxiIdAndDate(@Param("taxi_id") int taxi_id, @Param("date") String date, Pageable pageable);
 
     @Query(value = "SELECT ID, TAXI_ID, date, LONGITUDE, LATITUDE FROM (SELECT ID, TAXI_ID, date, LONGITUDE, LATITUDE, ROW_NUMBER() OVER (PARTITION BY TAXI_ID ORDER BY date DESC) AS rn FROM TRAJECTORIES ) AS subquery WHERE rn = 1", nativeQuery = true)
-    List<Trajectories> findLastLocation(Pageable pageable);
+    List<Trajectories> findLastLocation();
 
 
 }

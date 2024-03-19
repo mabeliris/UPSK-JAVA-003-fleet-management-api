@@ -86,14 +86,14 @@ public class TrajectoriesController {
 
 
     @GetMapping ("last-Location")
-    public List<Trajectories> getLastLocation (
+    public Page<Trajectories> getLastLocation (
 
 
         @Parameter(description = "Page number, default is 0") @RequestParam(defaultValue = "0") int page,
         @Parameter(description = "Number of items per page, default is 10") @RequestParam(defaultValue = "10") int size) {
 
-        Pageable pageable = PageRequest.of(page, size);
-        return trajectoriesService.getLastLocation(pageable);
+
+        return trajectoriesService.getLastLocation(page, size);
     }
 
 

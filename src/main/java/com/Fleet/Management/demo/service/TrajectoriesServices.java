@@ -5,6 +5,8 @@ import com.Fleet.Management.demo.model.Trajectories;
 import com.Fleet.Management.demo.repository.TrajectoriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +36,24 @@ public class TrajectoriesServices {
 
 
     //listar trayectorias por taxi
-    public List<Trajectories> getLastLocation(Pageable pageable) {
-        return trajectoriesRepository.findLastLocation(pageable); //cambiar en el repositorio
+
+    private Pageable createPageRequestUsing(int page, int size) {
+        return PageRequest.of(page, size);
     }
+
+    public Page<Trajectories> getLastLocation (int page, int size) {
+
+        Pageable pageRequest = createPageRequestUsing(page, size);
+
+        List<Trajectories> allCustomers = trajectoriesRepository.findLastLocation();
+        int start = (int) pageRequest.getOffset();
+        int end = Math.min((start + pageRequest.getPageSize()), allCustomers.size());
+
+        List<Trajectories> pageContent = allCustomers.subList(start, end);
+
+        List<Trajectories> lastLocation = trajectoriesRepository.findLastLocation();
+        return new PageImpl<>( pageContent, pageRequest, lastLocation.size());
+    }
+
+
 }
