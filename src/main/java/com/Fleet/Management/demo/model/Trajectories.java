@@ -13,7 +13,7 @@ public class Trajectories {
 
     //Atributos de la entidad o clase
     @Id
-    @Column(name= "id")
+   // @Column(name= "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -21,13 +21,13 @@ public class Trajectories {
     @JoinColumn(name= "taxi_id")
     private Taxi taxi; //tipo taxi join colum manyToOne ManyToOne - OneToMany - JoinColumn
 
-    @Column (name= "date")
+   // @Column (name= "date")
     private OffsetDateTime date;
 
-    @Column (name="latitude")
+   // @Column (name="latitude")
     private double latitude;
 
-    @Column (name="longitude")
+   // @Column (name="longitude")
     private double longitude;
 
 
