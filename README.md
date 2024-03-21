@@ -5,7 +5,7 @@
 * [1. Preámbulo](#1-preámbulo)
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
 * [3. Funcionalidades](#3-funcionalidades)
-* [4. Tecnologías usadas](#4-tecnologías-usadas)
+* [4. Tecnologías utilizadas](#4-tecnologías-utilizadas)
 
 
 
