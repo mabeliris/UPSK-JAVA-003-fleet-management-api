@@ -30,7 +30,7 @@ public class TaxiController {
     }
 
     //agregar documentación
-    @Operation(summary = "Get all taxis")
+    @Operation(summary = "Get-All-Taxis")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the taxi",
                     content = { @Content(mediaType = "application/json",
